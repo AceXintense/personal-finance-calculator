@@ -1,0 +1,24 @@
+{
+  "name": "Personal-Finance-Calculator",
+  "homepage": "https://github.com/AceXintense/Personal-Finance-Calculator",
+  "description": "Simple personal finance calculator",
+  "main": "index.html",
+  "keywords": [
+    "finance"
+  ],
+  "authors": [
+    "Sam Grew"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-local-storage": "^0.5.2",
+    "bootstrap": "^3.3.7"
+  }
+}

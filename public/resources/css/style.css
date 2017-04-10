@@ -1,0 +1,222 @@
+html, body {
+  padding: 20px 0;
+  background: #263238; }
+
+.container {
+  position: relative; }
+
+.header {
+  color: white;
+  text-align: center;
+  padding-bottom: 40px; }
+  .header .option-header {
+    margin-top: 150px; }
+  .header h1 {
+    font-size: 5vw;
+    text-shadow: 1px 1px 0px black; }
+  .header h3 {
+    text-shadow: 1px 1px 0px black; }
+  .header .income {
+    text-shadow: 1px 1px 0px black;
+    background-color: transparent;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid transparent;
+    color: white;
+    display: inline-block;
+    width: 200px; }
+  .header .high {
+    color: red; }
+  .header .medium {
+    color: yellow; }
+  .header .low {
+    color: green; }
+
+.error {
+  box-shadow: 0px 0 20px -10px black;
+  background-color: red;
+  margin: 10px 0;
+  color: white;
+  border-radius: 5px;
+  padding: 10px; }
+
+.description {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px; }
+  .description p {
+    margin: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px; }
+
+.card {
+  position: relative;
+  border: 0;
+  border-radius: 5px; }
+  .card .card-header {
+    border: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgba(50, 50, 50, 0.1); }
+  .card .edit-header {
+    margin: 0;
+    padding: 35px; }
+
+.error .btn {
+  margin: 33px; }
+  .error .btn i {
+    font-size: 66px;
+    margin: 20px; }
+  .error .btn .content {
+    margin: 10px 0;
+    padding-left: 20px; }
+
+.white-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  margin-bottom: 20px; }
+  .white-btn:hover {
+    background-color: #fff;
+    color: black;
+    border-color: white; }
+
+.options {
+  margin-bottom: 50px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 400px;
+  box-shadow: 0px 0 20px -10px black; }
+  .options .option:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .options .option:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  .options .option {
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid transparent; }
+  .options .option:hover {
+    background-color: #263238;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer; }
+  .options .selected-true {
+    background-color: #263238;
+    color: white;
+    border: 2px solid white; }
+  .options .option p {
+    margin: 13px 0; }
+
+.currencies {
+  margin-bottom: 50px;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 300px;
+  box-shadow: 0px 0 20px -10px black; }
+  .currencies .currency:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .currencies .currency:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  .currencies .currency {
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid transparent; }
+  .currencies .currency:hover {
+    background-color: #263238;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer; }
+  .currencies .selected-true {
+    background-color: #263238;
+    color: white;
+    border: 2px solid white; }
+  .currencies .currency p {
+    margin: 13px 0; }
+
+.newExpense .card-header {
+  padding: 32.5px 0; }
+.newExpense .card-header .btn-danger {
+  position: absolute;
+  top: -10px;
+  right: -10px; }
+  .newExpense .card-header .btn-danger .card-content {
+    padding: 28px 0; }
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 0 20px -10px black;
+  margin: 20px 0; }
+  .card .card-header {
+    text-align: center;
+    font-size: 62px; }
+  .card .card-content {
+    padding: 20px;
+    text-align: center; }
+    .card .card-content i {
+      font-size: 48px; }
+    .card .card-content .form {
+      padding: 0 20px; }
+    .card .card-content .form input {
+      margin: 10px 0; }
+    .card .card-content .form input:first-child {
+      margin-top: 0; }
+    .card .card-content .form input, .card .card-content .form button {
+      width: 100%; }
+    .card .card-content .form input:last-child {
+      margin: 0; }
+    .card .card-content .form button {
+      margin-top: 20px; }
+    .card .card-content .cost-input {
+      margin: 0; }
+    .card .card-content .input-group-addon {
+      margin: 10px 0; }
+  .card .buttons {
+    padding: 10px;
+    display: none;
+    position: absolute;
+    top: -20px;
+    right: -20px; }
+  .card:hover .buttons {
+    display: block; }
+    .card:hover .buttons:hover {
+      display: block; }
+  .card .cost {
+    font-weight: 700;
+    margin-left: -15px;
+    font-size: 68px; }
+  .card .form label {
+    margin-bottom: 0; }
+
+.close-button {
+  box-shadow: 1px 1px 20px -7px black; }
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 38px; }
+
+  .options {
+    position: relative;
+    margin: 0; }
+
+  .card .card-header {
+    font-size: 36px; }
+    .card .card-header span {
+      font-size: 36px;
+      margin-left: -5px; }
+    .card .card-header h1 {
+      font-size: 36px; }
+  .card .card-content i {
+    font-size: 36px; } }
+@media (min-width: 980px) {
+  .header h1 {
+    font-size: 62px; } }
+
+/*# sourceMappingURL=style.css.map */

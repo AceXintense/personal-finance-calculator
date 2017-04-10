@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ng-app="PersonalFinance">
+	<head>
+		<meta charset="UTF-8">
+		<title>Personal Finance</title>
+		<link rel='stylesheet' href='components/bootstrap/dist/css/bootstrap.min.css'>
+		<link rel="stylesheet" href="resources/css/style.css">
+	</head>
+
+	<body>
+	  	<div class="container" ng-controller="FinanceController">
+
+			<div class="errors">
+
+				<div class="error animated zoomIn" ng-repeat="(id, error) in errors">
+					<div class="row">
+
+						<div class="col-xs-1 col-sm-1">
+							<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+						</div>
+						<div class="col-xs-9 col-sm-8">
+							<div class="content">
+								<h1>{{ error.title }}</h1>
+								<p>{{ error.description }}</p>
+							</div>
+						</div>
+						<div class="col-xs-2 col-sm-2">
+							<button class="btn white-btn" ng-click="closeError(id)">Close</button>
+						</div>
+
+					</div>
+				</div>
+
+				<button class="btn white-btn" ng-click="closeAllErrors()" ng-if="errors.length > 1">Close All Error's</button>
+
+			</div>
+
+			<div class="options row">
+
+				<div class="option col-sm-3  selected-{{option.selected}}" ng-click="toggleSelected(options, option.value)" ng-repeat="option in options">
+					<p>{{ option.visual }}</p>
+				</div>
+
+			</div>
+
+			<div class="currencies row">
+
+				<div class="currency col-sm-4  selected-{{currency.selected}}" ng-click="toggleSelected(currencies, currency.value)" ng-repeat="currency in currencies">
+					<p>{{ currency.visual }}</p>
+				</div>
+
+			</div>
+
+			<div class="header">
+
+				<h1 class="option-header">{{ getSelectedValue(options).visual }}</h1>
+				<h1>Income {{ getSelectedValue(currencies).visual }}<input type="text" ng-model='incomeEdit' ng-click="toggleSelected(options, 'yearly')" ng-change="setIncome(getSelectedValue(options).value, incomeEdit)" class='income' ng-value="getIncome(getSelectedValue(options).value)"/>
+					<button class="btn btn-success" ng-click="finalizeEditing()" ng-show="incomeEditing">Done</button>
+				</h1>
+
+				<h3> - Difference {{ getSelectedValue(currencies).visual }}{{ getDifference() }} - </h3>
+
+				<h1 ng-class="outgoingStatus()"> Outgoings  {{ getSelectedValue(currencies).visual }}{{ calculateOutgoings() }}</h1>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-md-4 col-sm-6" ng-repeat="(id, card) in cards">
+					<div class="card">
+
+						<div class="buttons" ng-if="!card.edit">
+							<button class="btn btn-warning" ng-click="editCard(id)">Edit</button>
+							<button class="btn btn-danger" ng-click="deleteCard(id)">Delete</button>
+						</div>
+
+						<div class="card-header" ng-if="!card.edit">
+							<span class="cost">{{ getSelectedValue(currencies).visual }}{{ card.cost }}</span>
+						</div>
+
+						<div class="card-header edit-header" ng-if="card.edit">
+							<h1>Edit Expense</h1>
+						</div>
+
+						<div class="card-content" ng-if="!card.edit">
+							<h1>{{ card.title }}</h1>
+						</div>
+
+						<div class="card-content" ng-if="card.edit">
+							<div class="form">
+								<div class="row">
+									<div class="col-12">
+										<label for="">Service</label>
+										<input type="text" ng-model="titleEdit" ng-init="titleEdit = card.title" class="form-control" />
+									</div>
+									<div class="col-12">
+										<label for="">Cost</label>
+										<div class="input-group">
+											<div class="input-group-addon">{{ getSelectedValue(currencies).visual }}</div>
+											<input type="text" ng-model="costEdit" ng-init="costEdit = card.cost" class="form-control" />
+										</div>
+									</div>
+									<div class="col-12">
+										<button class="btn btn-success" ng-click="submitEditExpense(id, titleEdit, costEdit)">Edit Expense</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-4 col-sm-6 newExpense">
+					<div class="card">
+						<div class="card-header">
+							<button class="btn btn-danger close-button" ng-click="toggleNewExpense()" ng-if="newExpenseView"><i class="fa fa-times" aria-hidden="true"></i></button>
+							<h1>New Expense</h1>
+						</div>
+
+						<div class="card-content" ng-click="toggleNewExpense()" ng-if="!newExpenseView">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+						</div>
+
+						<div class="card-content" ng-if="newExpenseView">
+							<div class="form" ng-if="newExpenseView">
+								<div class="row">
+									<div class="col-12">
+										<label for="">Service</label>
+										<input type="text" ng-model="title" class="form-control" />
+									</div>
+									<div class="col-12">
+										<label for="">Cost</label>
+										<div class="input-group">
+												<div class="input-group-addon">{{ getSelectedValue(currencies).visual }}</div>
+												<input type="text" ng-model="cost" class="form-control cost-input" />
+											</div>
+										</div>
+									</div>
+									<div class="col-12">
+										<button class="btn btn-success" ng-click="newExpense(title, cost)">Add Expense</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+		</div>
+		<script src="https://use.fontawesome.com/61a26f520f.js"></script>
+		<script src='components/angular/angular.min.js'></script>
+		<script src='components/angular-local-storage/dist/angular-local-storage.min.js'></script>
+		<script src="resources/js/app.js"></script>
+	</body>
+</html>
